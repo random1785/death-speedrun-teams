@@ -19,7 +19,4 @@ If a player leaves midway through a match, they are able to rejoin as long as th
 Some bugs involving team damage being wonky? Doesn't seem to happen anymore on this version though <br>
 
 ## Todo list:
-Enable team triggers for anyone inside the spawn bounding box<br>
-Publicly shame players for leaving the cage using a title command<br/>
-Detect if players' scoreboards are correct? Sometimes people have the wrong death counter and it leads to issues <br>
-Maybe... just maybe... actually make it teams (this removes the players' ability to kill their teammates)... this is a nightmare though as the spreadplayers command listens to teams so like ioasdfjhasdglkjasgljhasdlkf
+spectator mode for players
