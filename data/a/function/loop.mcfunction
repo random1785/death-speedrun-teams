@@ -32,7 +32,21 @@ execute as @a[scores={t7=1..}] run scoreboard players set @s team 7
 execute as @a[scores={t7=1..}] run scoreboard players reset @s t7
 
 
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t7
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t6
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t5
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t4
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t3
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t2
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t1
 
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t1
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t2
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t3
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t4
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t5
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t6
+execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t7
 
 effect give @a[scores={death=18..}] resistance 1 255 true
 effect give @a[scores={death=18..}] mining_fatigue 1 254 true
@@ -45,8 +59,10 @@ execute in minecraft:the_nether positioned 11.08 129.00 4.82 run effect give @a[
 scoreboard players add @e[type=armor_stand,tag=score,scores={round=1..}] score 1
 execute as @e[tag=score,type=armor_stand,scores={score=0..10}] at @a run fill ~-3 ~-3 ~-3 ~3 ~3 ~3 air replace glass
 execute as @e[tag=score,type=armor_stand,scores={score=-10..0}] run scoreboard players set @a death 17
-execute as @e[tag=score,type=armor_stand,scores={score=-100..0}] run execute as @e[tag=start,type=armor_stand] at @s run execute as @a[gamemode=survival,distance=1..] run tellraw @a [{"selector":"@s","color":"red","bold":true},{"bold":false,"text":" was not in the starting box!"}]
-execute as @e[tag=score,type=armor_stand,scores={score=-100..0}] run execute as @e[tag=start,type=armor_stand] at @s run execute as @a[gamemode=survival,distance=1..] run function a:zzzbotched
+execute as @e[tag=score,type=armor_stand,scores={score=-160..0}] run execute as @e[tag=start,type=armor_stand] at @s run execute as @a[gamemode=survival,distance=1..] run tag @s add botch
+execute as @e[tag=score,type=armor_stand,scores={score=-160..0}] run execute as @e[tag=start,type=armor_stand] at @s run execute as @a[gamemode=survival,distance=1..] run function a:zzzbotched
+execute as @e[tag=score,type=armor_stand,scores={score=-160..0}] run execute as @a[scores={death=18..},gamemode=survival] run tag @s add botchd
+execute as @e[tag=score,type=armor_stand,scores={score=-160..0}] run execute as @a[scores={death=18..},gamemode=survival] run function a:zzzdied
 execute as @e[tag=score,type=armor_stand,scores={score=-200}] run effect give @a minecraft:instant_health 1 15 true
 execute as @e[tag=score,type=armor_stand,scores={score=-150}] run effect give @a minecraft:instant_health 1 15 true
 execute as @e[tag=score,type=armor_stand,scores={score=-100}] run effect give @a minecraft:instant_health 1 15 true
