@@ -21,14 +21,7 @@ tag @a remove c
 schedule function a:zzzstart1 20t
 gamemode survival @a
 scoreboard players set @a health 500
+scoreboard players set @a[scores={team=-1785}] health -1785
 scoreboard players set @a temp 500
+scoreboard players set @a[scores={team=-1785}] temp -1785
 scoreboard players reset @a gone
-
-# disables team trigger
-execute as @a run trigger t1 add 0
-execute as @a run trigger t2 add 0
-execute as @a run trigger t3 add 0
-execute as @a run trigger t4 add 0
-execute as @a run trigger t5 add 0
-execute as @a run trigger t7 add 0
-execute as @a run trigger t6 add 0

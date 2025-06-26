@@ -7,6 +7,11 @@ execute as @a[scores={t1=1..}] run tellraw @a [{"color":"aqua","selector":"@s"},
 execute as @a[scores={t1=1..}] run scoreboard players set @s team 1
 execute as @a[scores={t1=1..}] run scoreboard players reset @s t1
 
+execute as @a[scores={spec=1..}] run tellraw @a [{"color":"gray","selector":"@s"},{"text":" has become a spectator."}]
+execute as @a[scores={spec=1..}] run scoreboard players set @s team -1785
+execute as @a[scores={spec=1..}] run team leave @s
+execute as @a[scores={spec=1..}] run scoreboard players reset @s spec
+
 execute as @a[scores={t2=1..}] run tellraw @a [{"color":"green","selector":"@s"},{"text":" has joined team 2!"}]
 execute as @a[scores={t2=1..}] run scoreboard players set @s team 2
 execute as @a[scores={t2=1..}] run scoreboard players reset @s t2
@@ -39,23 +44,27 @@ execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 30
 execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t3
 execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t2
 execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t1
+execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] spec
 
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t1
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t2
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t3
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t4
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t5
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t6
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run scoreboard players enable @a[distance=..30] t7
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t1
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t2
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t3
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t4
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t5
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t6
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] t7
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run scoreboard players enable @a[distance=..60] spec
 
 effect give @a[scores={death=18..}] resistance 1 255 true
 effect give @a[scores={death=18..}] mining_fatigue 1 254 true
 execute positioned 12.79 308.35 0.70 run effect give @a[distance=..30] mining_fatigue 1 254 true
 execute positioned 12.79 308.35 0.70 run effect give @a[distance=..30] resistance 1 254 true
 execute positioned 22.41 309.99 0.39 run effect give @a[distance=..10] saturation 1 254 true
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run effect give @a[distance=..20] resistance 1 254 true
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run effect give @a[distance=..20] mining_fatigue 1 254 true
-execute in minecraft:the_nether positioned 11.08 129.00 4.82 run effect give @a[distance=..20] saturation 1 254 true
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run effect give @a[distance=..60] resistance 1 254 true
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run effect give @a[distance=..60] mining_fatigue 1 254 true
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run effect give @a[distance=..60] saturation 1 254 true
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run tp @e[type=enderman,distance=..60,tag=!end] ~ 0 ~
+execute in minecraft:the_nether positioned 11.08 159.00 4.82 run tag @e[type=enderman,distance=..60,tag=!end] add end
 scoreboard players add @e[type=armor_stand,tag=score,scores={round=1..}] score 1
 execute as @e[tag=score,type=armor_stand,scores={score=0..10}] at @a run fill ~-3 ~-3 ~-3 ~3 ~3 ~3 air replace glass
 execute as @e[tag=score,type=armor_stand,scores={score=-10..0}] run scoreboard players set @a death 17
