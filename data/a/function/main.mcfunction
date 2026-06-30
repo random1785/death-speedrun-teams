@@ -43,7 +43,7 @@ scoreboard objectives setdisplay list team
 scoreboard objectives setdisplay sidebar health
 scoreboard players set @a death 1785
 scoreboard players set @a team 0
-tellraw @a [{"bold":true,"color":"red","underline":true,"text":"STILL BETA TESTING LMAO Team-based "},{"text":"death speedruns has been loaded! Use /function a:start to begin the games!","color":"green"}]
+tellraw @a [{"bold":true,"color":"red","underline":true,"text":"Team-based "},{"text":"death speedruns has been loaded! Use /function a:start to begin the games!","color":"green"}]
 
 
 
