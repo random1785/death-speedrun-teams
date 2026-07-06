@@ -37,6 +37,16 @@ execute as @a[scores={t7=1..}] run scoreboard players set @s team 7
 execute as @a[scores={t7=1..}] run scoreboard players reset @s t7
 
 
+
+scoreboard players enable @a healthmessages
+execute as @a[scores={healthmessages=1..}] run scoreboard players add @s hpmsg 1
+execute as @a[scores={healthmessages=1..,hpmsg=2}] run scoreboard players set @s hpmsg 0
+tellraw @a[scores={healthmessages=1..,hpmsg=1}] [{"text":"Health messages are now enabled!","color":"dark_green"}]
+tellraw @a[scores={healthmessages=1..,hpmsg=0}] [{"text":"Health messages are now disabled!","color":"gray"}]
+scoreboard players reset @a[scores={healthmessages=1..}] healthmessages
+
+
+
 execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t7
 execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t6
 execute unless entity @e[limit=1,tag=score,scores={round=1}] positioned 12.79 308.35 0.70 run scoreboard players enable @a[distance=..30] t5

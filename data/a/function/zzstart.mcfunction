@@ -24,3 +24,9 @@ scoreboard players set @a[scores={team=-1785}] health -1785
 scoreboard players set @a temp 500
 scoreboard players set @a[scores={team=-1785}] temp -1785
 scoreboard players reset @a gone
+
+
+scoreboard players set @a hpmsg 1
+
+
+schedule function a:zzzhealthmsg 10t
